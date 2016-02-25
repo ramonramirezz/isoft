@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+    <th>Nombre</th>
+    <th>Jefe</th>
+    <th>Correo</th>
+    <th>Descripcion</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in Empresa">
+      <td>{{item.Nombre}}</td>
+      <td>{{item.Jefe}}</td>
+      <td>{{item.Correo}}</td>
+      <td>{{item.Descripcion}}</td>
+      
+
+      <td>
+        <a href="#">Edit</a>
+      </t>
+      <td>
+        <a href="#" ng-click="Eliminar(id)">Remove</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
