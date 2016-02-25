@@ -8,18 +8,18 @@
     <th>&nbsp;</th>
   </thead>
   <tbody>
-    <tr ng-repeat="item in Empresa">
-      <td>{{item.Nombre}}</td>
-      <td>{{item.Jefe}}</td>
-      <td>{{item.Correo}}</td>
-      <td>{{item.Descripcion}}</td>
+    <tr ng-repeat="empresa in vm.empresa">
+      <td>{{empresa.Nombre}}</td>
+      <td>{{empresa.Jefe}}</td>
+      <td>{{empresa.Correo}}</td>
+      <td>{{empresa.Descripcion}}</td>
       
 
       <td>
-        <a href="#">Edit</a>
+        <a ng-href="/#/editarempresa/{{empresa.$id}}" >Edit</a>
       </t>
       <td>
-        <a href="#" ng-click="Eliminar(id)">Remove</a>
+        <a ng-click="vm.deleteEmpresa(empresa.$id)">Remove</a>
       </td>
     </tr>
   </tbody>

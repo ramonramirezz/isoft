@@ -5,34 +5,33 @@
         .module('projectApp')
         .controller('CrearempresaCtrl', CrearempresaCtrl);
 
-    CrearempresaCtrl.$inject = ['$scope','$firebaseArray'];
+    CrearempresaCtrl.$inject = ['empresaSrv'];
 
     /* @ngInject */
-    function CrearempresaCtrl($scope, $firebaseArray) {
-        var vm = this;
+    function CrearempresaCtrl(empresaSrv) {
+        const vm = this;
         vm.title = 'CrearempresaCtrl';
+
+        vm.Agregar = agregar;
 
         //activate();
         //$.material.init();
 
-        ////////////////
-        
-        var datRef = new Firebase('https://dbarcadia.firebaseio.com/Empresa');
-        $scope.Empresa = $firebaseArray(datRef);
+        function agregar(){
+          vm.addEmpresa = {
+            Correo:vm.Correo,
+            Descripcion: vm.Descripcion,
+            Jefe: vm.Jefe,
+            Nombre: vm.Nombre
+          }
 
-        $scope.Agregar = function () {
+          empresaSrv.addEmpresa(vm.addEmpresa);
 
-        	$scope.Empresa.$add({
-                  Correo:$scope.Nombre,
-                  Descripcion:$scope.Jefe,
-                  Jefe:$scope.Correo,
-                  Nombre:$scope.Descripcion
-        	});
-
-              $scope.Nombre = '';
-              $scope.Correo = '';
-              $scope.Jefe = '';
-              $scope.Descripcion = '';
+          vm.Nombre = '';
+          vm.Correo = '';
+          vm.Jefe = '';
+          vm.Descripcion = '';
         }
+        
     }
 })();

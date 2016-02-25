@@ -50,6 +50,11 @@
         controller: 'AsignarusuarioCtrl',
         controllerAs: 'vm'
       })
+      .when('/editarempresa/:idEmpresa', {
+        templateUrl: 'views/editarempresa.html',
+        controller: 'EditarempresaCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });
