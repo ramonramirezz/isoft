@@ -13,13 +13,13 @@
       <td>{{item.Jefe}}</td>
       <td>{{item.Correo}}</td>
       <td>{{item.Descripcion}}</td>
-      
+      <td>{{item.id}}</td>
 
       <td>
-        <a href="#">Edit</a>
+        <a href="#/editarEmpresa/{{item}}" >Edit</a>
       </t>
       <td>
-        <a href="#" ng-click="Eliminar(id)">Remove</a>
+        <a href="#" ng-click="Eliminar(item)">Remove</a>
       </td>
     </tr>
   </tbody>

@@ -7,10 +7,10 @@
         .module('projectApp')
         .controller('VerempresaCtrl', VerempresaCtrl);
 
-    VerempresaCtrl.$inject = ['$scope','$firebaseArray'];
+    VerempresaCtrl.$inject = ['$scope','$firebaseObject'];
 
     /* @ngInject */
-    function VerempresaCtrl($scope, $firebaseArray) {
+    function VerempresaCtrl($scope, $firebaseObject) {
         var vm = this;
         vm.title = 'VerempresaCtrl';
 
@@ -20,10 +20,10 @@
         ////////////////
         
         var datRef = new Firebase('https://dbarcadia.firebaseio.com/Empresa');
-        $scope.Empresa = $firebaseArray(datRef);
-          
-        $scope.Eliminar = function(id){
-           $scope.Empresa.$remove(id);
+        $scope.Empresa = $firebaseObject(datRef);
+        $scope.Empresa.$ref().key();
+        $scope.Eliminar = function(item){
+           $scope.Empresa.$remove(item);
 
         }
         
